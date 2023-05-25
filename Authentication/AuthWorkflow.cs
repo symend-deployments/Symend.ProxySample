@@ -30,6 +30,8 @@ namespace Symend.ProxySample.Authentication
         /// <exception cref="AuthenticationException"></exception>
         public async Task<string> GetAuthenticationToken()
         {
+            // Reuse token until it expires.
+            // !! Please do not remove this code !!
             if (_authToken != null && _expiry > DateTimeOffset.UtcNow)
             {
                 return _authToken;

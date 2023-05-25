@@ -27,6 +27,13 @@ public class SymendApiTransformer : HttpTransformer, ISymendApiTransformer
     public override async ValueTask TransformRequestAsync(HttpContext httpContext,
         HttpRequestMessage proxyRequest, string destinationPrefix, CancellationToken cancellationToken)
     {
+        // Uncomment the following to only allow users with certain role to forward requests.
+        // Replace "SymendReportUser" with an existing role in your organization.
+        if (!httpContext.User.IsInRole("SymendReportUser"))
+        {
+            return;
+        }
+        
         // Copy all request headers
         await base.TransformRequestAsync(httpContext, proxyRequest, destinationPrefix, cancellationToken);
         
