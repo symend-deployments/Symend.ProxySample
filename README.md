@@ -1,4 +1,9 @@
+[appsettings]: appsettings.json
+[AuthWorkflow]: Authentication/AuthWorkflow.cs
+[Program]: Program.cs
 [ProxyRequestOverview]: ./Documentation/ProxyRequestOverview.jpg
+[Startup]: Startup.cs
+[SymendApiTransformer]: HttpTransformers/SymendApiTransformer.cs
 
 ## Symend Proxy Sample
 
@@ -74,8 +79,8 @@ This section provides a walkthrough of each component of the sample code base. T
 
 | File | Description |
 | ---- | ----------- |
-| [Program.cs](Program.cs) | Standard .NET web application startup file which configures and starts the proxy web hosts |
-| [Startup.cs](Startup.cs) | Standard .NET Web application startup file which registers all the components of the proxy as well as declaring a catch-all endpoint that performs the request forwarding operation |
-| [appsettings.json](appsettings.json) | System JSON configurations. The sections `AuthConfig` (security) and `ApiProxyConfig` (API) sections will need to be completed with settings and secrets obtained from Symend |
-| [AuthWorkflow.cs](Authentication/AuthWorkflow.cs) | Contains the algorithm to retrieve an authentication token from Symend’s authentication provider, Auth0. It generates a web request to Auth0 utilizing the AuthConfig settings |
-| [SymedApiTransformer.cs](HttpTransformers/SymendApiTransformer.cs) | Transformation from the proxy request to the request specified in the `url` query parameter.  It does so by utilizing the AuthWorkflow component to retrieve the authentication token, and the ApiProxyConfig settings to construct the forward request headers |
+| [Program.cs][Program] | Standard .NET web application startup file which configures and starts the proxy web hosts |
+| [Startup.cs][Startup] | Standard .NET Web application startup file which registers all the components of the proxy as well as declaring a catch-all endpoint that performs the request forwarding operation |
+| [appsettings.json][appsettings] | System JSON configurations. The sections `AuthConfig` (security) and `ApiProxyConfig` (API) sections will need to be completed with settings and secrets obtained from Symend |
+| [AuthWorkflow.cs][AuthWorkflow] | Contains the algorithm to retrieve an authentication token from Symend’s authentication provider, Auth0. It generates a web request to Auth0 utilizing the AuthConfig settings |
+| [SymedApiTransformer.cs][SymendApiTransformer] | Transformation from the proxy request to the request specified in the `url` query parameter.  It does so by utilizing the AuthWorkflow component to retrieve the authentication token, and the ApiProxyConfig settings to construct the forward request headers |
