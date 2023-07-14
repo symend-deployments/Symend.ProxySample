@@ -1,3 +1,5 @@
+[ProxyRequestOverview]: ./Documentation/ProxyRequestOverview.jpg
+
 ## Symend Proxy Sample
 
 ### Table of Contents
@@ -54,7 +56,7 @@ For example:
 
 A picture is worth a thousand words, the following diagram illustrates a scenario where a XyzCo (fictional company) Help Desk employee needs to retrieve a copy of email that Symend sent to one of XyzCo’s customers:
 
-!["Architecture" diagram displaying an example of a request from the proxy to Symend's API](../Documentation/ProxyRequestOverview.jpg)
+!["Architecture" diagram displaying an example of a request from the proxy to Symend's API][ProxyRequestOverview]
 
 1. Help Desk employee locates the email link for the customer, and clicks on it.
 2. XyzCo’s firewall intercepts traffic for Symend Web API, and redirects the request to the Web Proxy.
