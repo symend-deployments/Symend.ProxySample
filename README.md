@@ -10,6 +10,11 @@
 ### Table of Contents
 
 1. [Introduction](#introduction)
+2. [Warning](#warning)
+3. [Prequisites](#prequisites)
+4. [Making Requests to the Proxy](#making-requests-to-the-proxy)
+5. [Example Illustrated](#example-illustrated)
+6. [File Overview](#file-overview)
 
 ---
 
