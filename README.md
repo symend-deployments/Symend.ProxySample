@@ -9,18 +9,23 @@
 
 ### Table of Contents
 
-1. [Introduction](#introduction)
-2. [Warning](#warning)
-3. [Prequisites](#prequisites)
-4. [Making Requests to the Proxy](#making-requests-to-the-proxy)
-5. [Example Illustrated](#example-illustrated)
-6. [File Overview](#file-overview)
+ - [Introduction](#introduction)
+ - [Warning, Security](#warning-security)
+ - [Warning, Interaction](#warning-interaction)
+ - [Prequisites](#prequisites)
+ - [Making Requests to the Proxy](#making-requests-to-the-proxy)
+ - [Example Illustrated](#example-illustrated) 
+ - [File Overview](#file-overview)
 
 ---
 
 ### Introduction
 
-The Symend.Proxy.Sample package contains a .NET C# web application that can be used as a web proxy server to make requests to Symend for resources made available by its Web API.
+The “View Sent Emails” feature allows Symend clients to access a copy of the actual email message that was sent to their customer. This includes all rendering of personalizations and is a reasonable representation of the actual message the end-customer would have received. It should be understood that although the copy of the email is roughly exact, factors such as different email clients mean that it can't be garaunteed that it will be 100% exactly what was viewed
+
+Exports which include the Sent Message URL property from email messaging events can be viewed and is intended to be done via a proxy.
+
+This Symend.ProxySample package contains an example of a .NET C# web application that can be used as a web proxy server to make requests to Symend for resources made available by its Web API for sent emails.
 
 The Sample Proxy is designed to forward requests to obtain Symend resources (on behalf of users) even if the users do not have a Symend account.  This is based on the assumptions that:
 
@@ -31,11 +36,15 @@ To try out the sample proxy, simply extract the package content on to your local
 
 ---
 
-### Warning
+### Warning, Security
 
-Access to the sample proxy is not secured; once the proxy is fully configured, it can potentially retrieve resources containing PII data.  Please take caution to restrict access to the proxy as well as the secrets obtained from Symend.  See the section on SymendApiTransformer.cs
+Access to the sample proxy is not secured; once the proxy is fully configured, it can potentially retrieve resources containing PII data.  Please take caution to restrict access to the proxy as well as the secrets obtained from Symend.
 
-for an example on how to modify the sample proxy to restrict access to users with certain role.
+---
+
+### Warning, Interaction
+
+It is important to be aware that the stored sent email that users will be able to view through this URL will contain the same Calls to Action (CTA) that were present in the message received by the customer. Clicking on or engaging with any CTAs in the email and following through with any offers on Landing Pages will be registered by Symend as if the customer themselves did so. Therefore it is strongly recommended that these emails are not used for testing purposes and that following any links be done with caution.
 
 ---
 
